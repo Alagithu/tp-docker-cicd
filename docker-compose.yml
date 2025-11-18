@@ -3,7 +3,7 @@ version: "3.3"
 services:
   backend:
     build: ./backend
-    container_name: tp-backend
+    container_name: docker-backend
     ports:
       - "3000:3000"  # Backend accessible sur localhost:3000
     networks:
@@ -19,7 +19,7 @@ services:
 
   frontend:
     build: ./frontend
-    container_name: tp-frontend
+    container_name: docker-frontend
     ports:
       - "8080:80"  # Frontend accessible sur localhost:8080
     depends_on:
@@ -29,7 +29,7 @@ services:
 
   db:
     build: ./database  # Build à partir de database/Dockerfile
-    container_name: tp-db
+    container_name: docker-db
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: secret
